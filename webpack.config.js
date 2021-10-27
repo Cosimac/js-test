@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-10-20 16:29:42
  * @LastEditors: Cosima
- * @LastEditTime: 2021-10-20 17:31:10
+ * @LastEditTime: 2021-10-27 15:24:24
  * @FilePath: /js-test/webpack.config.js
  */
 const path = require('path');
@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'test5'
+      title: 'Development'
     })
   ],
   mode: "development",
