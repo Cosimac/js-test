@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-10-20 16:29:42
  * @LastEditors: Cosima
- * @LastEditTime: 2021-10-28 11:40:56
+ * @LastEditTime: 2021-10-28 14:43:40
  * @FilePath: /js-test/webpack.config.js
  */
 const path = require('path');
@@ -16,13 +16,13 @@ module.exports = {
     filename: 'webpack-numbers.js',
     clean: true,
     library: {
-      // name: 'webpackNumbers',
-      type: 'module'
+      name: 'webpackNumbers',
+      type: 'umd'
     }
   },
-  experiments: {
-    outputModule: true,
-  },
+  // experiments: {
+  //   outputModule: true,
+  // },
   // optimization: {
   //   moduleIds: 'deterministic',
   //   runtimeChunk: 'single',
