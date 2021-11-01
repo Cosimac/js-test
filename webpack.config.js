@@ -1,11 +1,11 @@
 /*
  * @Date: 2021-10-20 16:29:42
  * @LastEditors: Cosima
- * @LastEditTime: 2021-10-28 14:43:40
+ * @LastEditTime: 2021-11-01 14:46:12
  * @FilePath: /js-test/webpack.config.js
  */
 const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const resolve = (dir) => path.resolve(__dirname, dir)
 
 module.exports = {
@@ -13,16 +13,9 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'webpack-numbers.js',
+    filename: 'bundle.js',
     clean: true,
-    library: {
-      name: 'webpackNumbers',
-      type: 'umd'
-    }
   },
-  // experiments: {
-  //   outputModule: true,
-  // },
   // optimization: {
   //   moduleIds: 'deterministic',
   //   runtimeChunk: 'single',
@@ -45,23 +38,25 @@ module.exports = {
   //   },
   // },
   module: {
-    // rules: [
-    //   {
-    //     test: /\.css$/,
-    //     use: ['style-loader', 'css-loader'],
-    //   },
-    // ],
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   title: 'js-code'
-    // })
+    new HtmlWebpackPlugin({
+      title: 'js-code'
+    })
   ],
-  // devtool: 'inline-source-map',
-  // devServer: {
-  //   static: './dist',
-  //   hot: true
-  // },
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+    host: '127.0.0.1',
+    port: 8888,
+    hot: true
+  },
   resolve: {
     extensions: [".js"],
     alias: {

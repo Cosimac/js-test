@@ -1,55 +1,19 @@
 /*
  * @Date: 2021-10-20 15:57:06
  * @LastEditors: Cosima
- * @LastEditTime: 2021-10-28 11:45:02
+ * @LastEditTime: 2021-11-01 14:42:25
  * @FilePath: /js-test/src/index.js
  */
-import _ from 'lodash';
-// import numRef from './ref.json';
+import _ from 'lodash'
 
-const numRef = [
-  {
-    "num": 1,
-    "word": "One"
-  },
-  {
-    "num": 2,
-    "word": "Two"
-  },
-  {
-    "num": 3,
-    "word": "Three"
-  },
-  {
-    "num": 4,
-    "word": "Four"
-  },
-  {
-    "num": 5,
-    "word": "Five"
-  },
-  {
-    "num": 0,
-    "word": "Zero"
-  }
-]
+function component() {
+  const element = document.createElement('div');
 
-export function numToWord(num) {
-  return _.reduce(
-    numRef,
-    (accum, ref) => {
-      return ref.num === num ? ref.word : accum;
-    },
-    ''
-  );
+  // lodash（目前通过一个 script 引入）对于执行这一行是必需的
+  // lodash 在当前 script 中使用 import 引入
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+  return element;
 }
 
-export function wordToNum(word) {
-  return _.reduce(
-    numRef,
-    (accum, ref) => {
-      return ref.word === word && word.toLowerCase() ? ref.num : accum;
-    },
-    -1
-  );
-}
+document.body.appendChild(component());
