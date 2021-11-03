@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-10-20 15:57:06
  * @LastEditors: Cosima
- * @LastEditTime: 2021-11-02 15:36:12
+ * @LastEditTime: 2021-11-03 11:49:26
  * @FilePath: /js-test/src/index.js
  */
 import _ from 'lodash'
@@ -35,12 +35,25 @@ People.prototype = new Person()
 const people = new People()
 const person = new Person()
 
-console.log(people, 'people的实例');
-console.log(People.prototype, 'People原型对象')
-console.log(people.__proto__, 'people原型对象');
-console.log(people.__proto__.constructor, 'people的构造函数');
-console.log(people.__proto__ === People.prototype, '------');
+// console.log(people, 'people的实例');
+// console.log(People.prototype, 'People原型对象')
+// console.log(people.__proto__, 'people原型对象');
+// console.log(people.__proto__.constructor, 'people的构造函数');
+// console.log(people.__proto__ === People.prototype, '------');
 
 // ----------------原型链END---------------------
+
+// 将参数从一个函数传递到另一个函数的推荐做法。
+function foo() {
+  bar.apply(null, arguments);
+}
+function bar(a, b, c) {
+  // 干活
+}
+
+
+
+
+
 
 
